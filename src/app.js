@@ -20,4 +20,13 @@ app.use(express.urlencoded({
 
 app.use(express.static("public"))
 app.use(cookieParser())
+
+//routes import
+import userRouter from "./routes/user.routes.js"
+
+//routes declaration
+app.use("/api/v1/users", userRouter) 
+//this use is middleware(when someone types /api/v1/users then we give control to userRouter)
+// example {http://localhost:8000/api/v1/users/register}
+
 export { app };
